@@ -1,5 +1,5 @@
 from ui import UI
-from console_io import ConsoleIO
+from src.io.console_io import ConsoleIO
 from citation_repository import CitationRepository
 
 if __name__ == "__main__":
