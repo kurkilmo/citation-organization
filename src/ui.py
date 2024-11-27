@@ -33,6 +33,8 @@ class UI:
 
         citation = [identifier, author, title, journal, year, volume, pages]
         self.io.write(citation)
+        self.citation_repository.add_new(citation)
 
     def _print_all(self):
+        citations = self.citation_repository.get_all()
         self.io.write("all printed")
