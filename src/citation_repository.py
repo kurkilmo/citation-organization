@@ -1,0 +1,2 @@
+class CitationRepository:
+    pass
