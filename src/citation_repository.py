@@ -3,7 +3,7 @@ class CitationRepository:
         self._citations = []
 
     def add_new(self):
-        k =0
+        k=0
 
     def get_all(self):
         l=0
