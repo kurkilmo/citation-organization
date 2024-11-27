@@ -1,8 +1,8 @@
 from console_io import ConsoleIO
 
 class UI:
-    def __init__(self):
-        self.io = ConsoleIO()
+    def __init__(self, io):
+        self.io = io
 
     def start(self):
         while True:
