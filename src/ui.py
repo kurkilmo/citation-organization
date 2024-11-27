@@ -1,7 +1,6 @@
-from console_io import ConsoleIO
-
 class UI:
-    def __init__(self, io):
+    def __init__(self, io, citation_repository):
+        self.citation_repository = citation_repository
         self.io = io
 
     def start(self):
