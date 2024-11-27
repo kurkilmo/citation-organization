@@ -1,7 +1,7 @@
 # Lähdeviitteiden hallintasovellus
 ### TEKA3003 Ohjelmistotuotanto -kurssin miniprojekti
 
-![GHA workflow badge](https://github.com/kurkilmo/citation-organizaation/workflows/CI/badge.svg
+![GHA workflow badge](https://github.com/kurkilmo/citation-organization/workflows/CI/badge.svg
 ## [Alustava sovelluksen kuvaus](https://ohjelmistotuotanto-jyu.github.io/speksi/)
 - viitteitä täytyy pystyä lisäämään järjestelmään ihmiselle hyvässä muodossa, esimerkiksi jonkun lomakkeen avulla
 - järjestelmässä olevista viitteistä pitää saada generoitua LaTeX-dokumenttiin sopiva BibTeX-muotoinen tiedosto
