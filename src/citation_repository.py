@@ -1,9 +1,14 @@
+from citation import Citation
+
+
 class CitationRepository:
     def __init__(self):
         self._citations = []
 
-    def add_new(self):
-        k=0
+    def add_new(self, citation):
+        citations = self.get_all()
+        citations.append(citation)
+        self._citations = citations
 
     def get_all(self):
-        l=0
+        return self._citations
