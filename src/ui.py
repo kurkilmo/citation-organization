@@ -4,17 +4,26 @@ class UI:
     def __init__(self, io, citation_repository):
         self.citation_repository = citation_repository
         self.io = io
+        self.commands = {
+            "help": (self._help, "Print this help message"),
+            "create": (self._create, "Create new article citation"),
+            "print": (self._print_all, "Print all citations")
+        }
 
     def start(self):
+        self.io.write("Welcome!\nType \"help\" for help.")
         while True:
             command = self.io.read("> ")
-            match command:
-                case "create":
-                    self._create()
-                case "print":
-                    self._print_all()
-                case "":
-                    break
+            try:
+                cmd = self.commands[command][0]
+                cmd()
+            except KeyError:
+                self.io.write("Unknown command")
+
+    def _help(self):
+        self.io.write("Available commands:\n")
+        for key in self.commands:
+            self.io.write(f"{key}: {self.commands[key][1]}")
     
     def _create(self):
         self.io.write("Adding new article")
