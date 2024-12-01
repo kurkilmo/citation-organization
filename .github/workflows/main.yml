@@ -20,7 +20,5 @@ jobs:
         run: pip install poetry
       - name: Install dependencies
         run: poetry install
-      - name: Install Robot Framework
-        run: poetry run pip install robotframework
       - name: Run Robot Framework Tests
         run: poetry run robot src/tests/
