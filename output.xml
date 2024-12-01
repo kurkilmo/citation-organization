@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.7 on win32)" generated="2024-12-01T14:17:29.063154" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="C:\kurssit\ohjtuo\citation-organization\src\tests">
+<suite id="s1-s1" name="Citation" source="C:\kurssit\ohjtuo\citation-organization\src\tests\citation.robot">
+<test id="s1-s1-t1" name="Add New Citation" line="5">
+<kw name="Add New Citation">
+<msg time="2024-12-01T14:17:29.094380" level="FAIL">No keyword with name 'Add New Citation' found.</msg>
+<arg>Joku Ukko</arg>
+<arg>Random Sitaatti</arg>
+<status status="FAIL" start="2024-12-01T14:17:29.094380" elapsed="0.000000">No keyword with name 'Add New Citation' found.</status>
+</kw>
+<kw name="Get All Citations">
+<var>${citations}</var>
+<status status="NOT RUN" start="2024-12-01T14:17:29.094380" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${citations}</arg>
+<arg>Joku Ukko: Random Sitaatti</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2024-12-01T14:17:29.094380" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-12-01T14:17:29.094380" elapsed="0.000000">No keyword with name 'Add New Citation' found.</status>
+</test>
+<test id="s1-s1-t2" name="Add Multiple Citations" line="10">
+<kw name="Add New Citation">
+<msg time="2024-12-01T14:17:29.094380" level="FAIL">No keyword with name 'Add New Citation' found.</msg>
+<arg>Toinen Kaveri</arg>
+<arg>Hullu Teos</arg>
+<status status="FAIL" start="2024-12-01T14:17:29.094380" elapsed="0.000000">No keyword with name 'Add New Citation' found.</status>
+</kw>
+<kw name="Add New Citation">
+<arg>Kolmas Jaba</arg>
+<arg>Makia Tutkimus</arg>
+<status status="NOT RUN" start="2024-12-01T14:17:29.094380" elapsed="0.000000"/>
+</kw>
+<kw name="Get All Citations">
+<var>${citations}</var>
+<status status="NOT RUN" start="2024-12-01T14:17:29.094380" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${citations}</arg>
+<arg>Toinen Kaveri: Hullu Teos</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2024-12-01T14:17:29.094380" elapsed="0.000000"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${citations}</arg>
+<arg>Kolmas Jaba: Makia Tutkimus</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2024-12-01T14:17:29.094380" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-12-01T14:17:29.094380" elapsed="0.000000">No keyword with name 'Add New Citation' found.</status>
+</test>
+<test id="s1-s1-t3" name="Retrieve Empty List" line="17">
+<kw name="Get All Citations">
+<msg time="2024-12-01T14:17:29.094380" level="FAIL">No keyword with name 'Get All Citations' found.</msg>
+<var>${citations}</var>
+<status status="FAIL" start="2024-12-01T14:17:29.094380" elapsed="0.000000">No keyword with name 'Get All Citations' found.</status>
+</kw>
+<kw name="Should Be Empty" owner="BuiltIn">
+<arg>${citations}</arg>
+<doc>Verifies that the given item is empty.</doc>
+<status status="NOT RUN" start="2024-12-01T14:17:29.094380" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-12-01T14:17:29.094380" elapsed="0.000000">No keyword with name 'Get All Citations' found.</status>
+</test>
+<status status="FAIL" start="2024-12-01T14:17:29.094380" elapsed="0.000000"/>
+</suite>
+<status status="FAIL" start="2024-12-01T14:17:29.063154" elapsed="0.031226"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="3" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="0" fail="3" skip="0" id="s1-s1" name="Citation">Tests.Citation</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-12-01T14:17:29.094380" level="WARN">Imported library 'C:\kurssit\ohjtuo\citation-organization\src\citation_library.py' contains no keywords.</msg>
+</errors>
+</robot>

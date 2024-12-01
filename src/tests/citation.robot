@@ -1,5 +1,5 @@
 *** Settings ***
-Resource  resource.robot
+Library  ../citation_library.py
 
 *** Test Cases ***
 Add New Citation
