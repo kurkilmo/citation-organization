@@ -20,6 +20,7 @@ class UI:
         self.io.write("Welcome!\nType \"help\" for help.")
         while True:
             command = self.io.read("> ")
+            if not command: break
             try:
                 cmd = self.commands[command][0]
                 cmd()
@@ -68,4 +69,4 @@ class UI:
     def _print_all(self):
         citations = self.citation_repository.get_all()
         for citation in citations:
-            print(citation)
+            self.io.write(citation)

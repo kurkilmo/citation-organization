@@ -1,5 +1,5 @@
 *** Settings ***
-Library  ../citation_library.py
+Library  ../CitationLibrary.py
 
 *** Test Cases ***
 Add New Citation
