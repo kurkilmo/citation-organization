@@ -1,3 +1,5 @@
+from citation import Citation
+
 class UI:
     def __init__(self, io, citation_repository):
         self.citation_repository = citation_repository
@@ -31,10 +33,24 @@ class UI:
         volume = self.io.read("Give journal volume: ")
         pages = self.io.read("Give pages of article: ")
 
-        citation = [identifier, author, title, journal, year, volume, pages]
-        self.io.write(citation)
-        self.citation_repository.add_new(citation)
+        self.citation_repository.add_new(
+            Citation(
+                "article",
+                identifier,
+                {
+                    "author": author,
+                    "title": title,
+                    "journal": journal,
+                    "year": year,
+                    "volume": volume,
+                    "pages": pages
+                }
+            )
+        )
+
+        self.io.write(f"Article {identifier} added.")
 
     def _print_all(self):
         citations = self.citation_repository.get_all()
-        self.io.write("all printed")
+        for citation in citations:
+            print(citation)
