@@ -1,4 +1,5 @@
 from citation import Citation
+import signal, sys
 
 class UI:
     def __init__(self, io, citation_repository):
@@ -10,7 +11,12 @@ class UI:
             "print": (self._print_all, "Print all citations")
         }
 
+    def handle_SIGINT(self, signal, frame):
+        self.io.write("\nGoodbye!")
+        sys.exit(0)
+
     def start(self):
+        signal.signal(signal.SIGINT, self.handle_SIGINT)
         self.io.write("Welcome!\nType \"help\" for help.")
         while True:
             command = self.io.read("> ")
