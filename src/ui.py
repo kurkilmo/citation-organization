@@ -18,6 +18,7 @@ class UI:
     def start(self):
         signal.signal(signal.SIGINT, self.handle_SIGINT)
         self.io.write("Welcome!\nType \"help\" for help.")
+        self.io.write("Type \"create\" to create a new article citation")
         while True:
             command = self.io.read("> ")
             if not command: break
