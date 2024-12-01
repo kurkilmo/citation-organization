@@ -1,0 +1,38 @@
+[
+    {
+        "citation_type": "article",
+        "key": "2",
+        "fields": {
+            "author": "2",
+            "title": "2",
+            "journal": "2",
+            "year": 2,
+            "volume": "2",
+            "pages": "2"
+        }
+    },
+    {
+        "citation_type": "article",
+        "key": "4",
+        "fields": {
+            "author": "4",
+            "title": "4",
+            "journal": "4",
+            "year": 4,
+            "volume": "4",
+            "pages": "4"
+        }
+    },
+    {
+        "citation_type": "article",
+        "key": "5",
+        "fields": {
+            "author": "5",
+            "title": "5",
+            "journal": "5",
+            "year": 55,
+            "volume": "55",
+            "pages": "5"
+        }
+    }
+]

@@ -1,5 +1,7 @@
 class Citation:
-    def __init__(self, citation_type, key, fields = dict()):
+    def __init__(self, citation_type, key, fields=None):
+        if fields is None:
+            fields = {}
         self.citation_type = citation_type
         self.key = key
         self.fields = fields
@@ -12,4 +14,7 @@ class Citation:
         result = result[:-2]
         result += "\n}"
         return result
+    
+
+    
         
