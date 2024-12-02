@@ -18,3 +18,11 @@ Add Multiple Citations
 Retrieve Empty List
     ${citations}=  Get All Citations
     Should Be Empty  ${citations}
+
+Remove All Citations
+    Add New Citation  Jaska  Facebook-päivitys
+    ${citations}=  Get All Citations
+    Should Contain  ${citations}  Jaska: Facebook-päivitys
+    Empty File
+    ${citations}=  Get All Citations
+    Should Be Empty  ${citations}
