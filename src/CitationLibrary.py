@@ -3,7 +3,7 @@ from citation_repository import CitationRepository
 
 class CitationLibrary:
     def __init__(self):
-        self.repo = CitationRepository()
+        self.repo = CitationRepository("src/tests/tests.json")
 
     def add_new_citation(self, author, title):
         """Add New Citation"""
@@ -13,3 +13,8 @@ class CitationLibrary:
     def get_all_citations(self):
         """Get All Citations"""
         return [f"{c.fields["author"]}: {c.fields["title"]}" for c in self.repo.get_all()]
+    
+    def empty_file(self):
+        """create empty json file"""
+        self.repo.delete_all()
+    

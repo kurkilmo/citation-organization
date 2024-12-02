@@ -15,5 +15,6 @@ Add Multiple Citations
     Should Contain  ${citations}  Kolmas Jaba: Makia Tutkimus
 
 Retrieve Empty List
+    Empty file
     ${citations}=  Get All Citations
     Should Be Empty  ${citations}

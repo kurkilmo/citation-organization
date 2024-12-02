@@ -1,0 +1,110 @@
+[
+    {
+        "citation_type": "article",
+        "key": "ID",
+        "fields": {
+            "author": "authori",
+            "title": "title",
+            "journal": "journal",
+            "year": 1999,
+            "volume": "volume",
+            "pages": "1--100"
+        }
+    },
+    {
+        "citation_type": "article",
+        "key": "ID1",
+        "fields": {
+            "author": "author1",
+            "title": "title",
+            "journal": "journal",
+            "year": 1999,
+            "volume": "volume",
+            "pages": "1--100"
+        }
+    },
+    {
+        "citation_type": "article",
+        "key": "ID2",
+        "fields": {
+            "author": "author2",
+            "title": "title",
+            "journal": "journal",
+            "year": 1999,
+            "volume": "volume",
+            "pages": "1--100"
+        }
+    },
+    {
+        "citation_type": "article",
+        "key": "ID",
+        "fields": {
+            "author": "authori",
+            "title": "title",
+            "journal": "journal",
+            "year": 1999,
+            "volume": "volume",
+            "pages": "1--100"
+        }
+    },
+    {
+        "citation_type": "article",
+        "key": "ID1",
+        "fields": {
+            "author": "author1",
+            "title": "title",
+            "journal": "journal",
+            "year": 1999,
+            "volume": "volume",
+            "pages": "1--100"
+        }
+    },
+    {
+        "citation_type": "article",
+        "key": "ID2",
+        "fields": {
+            "author": "author2",
+            "title": "title",
+            "journal": "journal",
+            "year": 1999,
+            "volume": "volume",
+            "pages": "1--100"
+        }
+    },
+    {
+        "citation_type": "article",
+        "key": "ID",
+        "fields": {
+            "author": "authori",
+            "title": "title",
+            "journal": "journal",
+            "year": 1999,
+            "volume": "volume",
+            "pages": "1--100"
+        }
+    },
+    {
+        "citation_type": "article",
+        "key": "ID1",
+        "fields": {
+            "author": "author1",
+            "title": "title",
+            "journal": "journal",
+            "year": 1999,
+            "volume": "volume",
+            "pages": "1--100"
+        }
+    },
+    {
+        "citation_type": "article",
+        "key": "ID2",
+        "fields": {
+            "author": "author2",
+            "title": "title",
+            "journal": "journal",
+            "year": 1999,
+            "volume": "volume",
+            "pages": "1--100"
+        }
+    }
+]

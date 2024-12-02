@@ -28,3 +28,7 @@ class CitationRepository:
 
     def get_all(self):
         return self._citations
+    
+    def delete_all(self):
+        self._citations = []
+        self._save_to_file()
