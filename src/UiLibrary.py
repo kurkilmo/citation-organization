@@ -1,7 +1,7 @@
 from ui import UI
 from in_out.stub_io import StubIO
 from citation_repository import CitationRepository
-from citation import Citation
+import os
 
 class UiLibrary:
     def __init__(self):
@@ -21,14 +21,28 @@ class UiLibrary:
             )
     
     def output_should_contain_bib(self, id, author):
-        self.output_should_contain(f"""@article{{{id},
+        self.output_should_contain(self._format_bib(id, author))
+        
+    def _format_bib(self, id, author):
+        return f"""@article{{{id},
     author = {{{author}}},
     title = {{title}},
     journal = {{journal}},
     year = {{1999}},
     volume = {{volume}},
     pages = {{1--100}}
-}}""")
+}}"""
+    
+    def file_should_containt(self, filename, id, author):
+        with open(filename, "r") as file:
+            text = file.read()
+            if not self._format_bib(id, author) in text:
+                raise AssertionError(
+                    f"Citation {id}, {author} is not in {filename}"
+                )
+    
+    def delete_file(self, filename):
+        os.remove(filename)
 
     def start_ui(self):
         self._ui.start()

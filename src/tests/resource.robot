@@ -6,6 +6,9 @@ Library    ../UiLibrary.py
 Input Create Command
     Input    create
 
+Input Export Command
+    Input    export
+
 Input Citation Information
     [Arguments]  ${ID}  ${author}
     Input  ${ID}
