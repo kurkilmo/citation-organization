@@ -1,5 +1,5 @@
 from citation import Citation
-import signal, sys
+import signal, sys, os
 
 class UI:
     def __init__(self, io, citation_repository):
@@ -8,7 +8,8 @@ class UI:
         self.commands = {
             "help": (self._help, "Print this help message"),
             "create": (self._create, "Create new article citation"),
-            "print": (self._print_all, "Print all citations")
+            "print": (self._print_all, "Print all citations"),
+            "export": (self._export, "Export citations in bibtex format")
         }
 
     def handle_SIGINT(self, signal, frame):
@@ -71,3 +72,16 @@ class UI:
         citations = self.citation_repository.get_all()
         for citation in citations:
             self.io.write(citation)
+    
+    def _export(self):
+        working_path = os.getcwd()
+        filename = self.io.read(
+            f"""Give file path for export:
+(relative to working path {working_path})
+> """)
+        succeed = self.citation_repository.export_all(filename)
+        if succeed:
+            self.io.write(f"Successfully wrote to {filename}")
+        else:
+            self.io.write("Error while writing")
+

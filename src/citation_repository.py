@@ -32,3 +32,12 @@ class CitationRepository:
     def delete_all(self):
         self._citations = []
         self._save_to_file()
+    
+    def export_all(self, filename):
+        '''Exports citations in bibtex format.
+Returns True if succesful.'''
+        with open(filename, "w") as file:
+            for citation in self._citations:
+                file.writelines(str(citation)+'\n\n')
+            return True
+        return False
