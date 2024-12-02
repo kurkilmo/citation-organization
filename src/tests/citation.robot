@@ -1,5 +1,6 @@
 *** Settings ***
 Library  ../CitationLibrary.py
+Test Teardown    Empty File
 
 *** Test Cases ***
 Add New Citation
@@ -15,6 +16,5 @@ Add Multiple Citations
     Should Contain  ${citations}  Kolmas Jaba: Makia Tutkimus
 
 Retrieve Empty List
-    Empty file
     ${citations}=  Get All Citations
     Should Be Empty  ${citations}

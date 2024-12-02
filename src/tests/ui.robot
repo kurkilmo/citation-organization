@@ -1,6 +1,7 @@
 *** Settings ***
 Resource    resource.robot
 Test Setup    Start Ui
+Test Teardown    Empty File
 
 *** Keywords ***
 Input Create and Create Citation
