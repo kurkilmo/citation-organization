@@ -6,7 +6,7 @@ from citation import Citation
 class UiLibrary:
     def __init__(self):
         self._io = StubIO()
-        self._citation_repository = CitationRepository()
+        self._citation_repository = CitationRepository("src/tests/tests.json")
         self._ui = UI(self._io, self._citation_repository)
 
     def input(self, value):
