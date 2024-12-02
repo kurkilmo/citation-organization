@@ -4,7 +4,7 @@ import io
 
 
 class CitationRepository:
-    def __init__(self, file_path="citations.json"):
+    def __init__(self, file_path="src/citations.json"):
         self._file_path = file_path
         self._citations = self._load_from_file()
 
