@@ -71,7 +71,7 @@ class UI:
     def _print_all(self):
         citations = self.citation_repository.get_all()
         for citation in citations:
-            self.io.write(citation)
+            self.io.write('\n' + str(citation))
     
     def _export(self):
         working_path = os.getcwd()
