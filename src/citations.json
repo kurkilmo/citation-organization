@@ -1,110 +1,38 @@
 [
     {
         "citation_type": "article",
-        "key": "ID",
-        "fields": {
-            "author": "authori",
-            "title": "title",
-            "journal": "journal",
-            "year": 1999,
-            "volume": "volume",
-            "pages": "1--100"
-        }
-    },
-    {
-        "citation_type": "article",
         "key": "ID1",
         "fields": {
-            "author": "author1",
-            "title": "title",
-            "journal": "journal",
-            "year": 1999,
-            "volume": "volume",
-            "pages": "1--100"
+            "author": "Pekka Pekkanen",
+            "title": "Hemo Artikkeli",
+            "journal": "Pähee lehti",
+            "year": 2000,
+            "volume": "4",
+            "pages": "10--20"
         }
     },
     {
         "citation_type": "article",
         "key": "ID2",
         "fields": {
-            "author": "author2",
-            "title": "title",
-            "journal": "journal",
-            "year": 1999,
-            "volume": "volume",
-            "pages": "1--100"
+            "author": "Kalle Kallenen",
+            "title": "Tää on tämmöstä",
+            "journal": "Aku Ankka",
+            "year": 2019,
+            "volume": "42",
+            "pages": "1--20"
         }
     },
     {
         "citation_type": "article",
-        "key": "ID",
+        "key": "ID3",
         "fields": {
-            "author": "authori",
-            "title": "title",
-            "journal": "journal",
-            "year": 1999,
-            "volume": "volume",
-            "pages": "1--100"
-        }
-    },
-    {
-        "citation_type": "article",
-        "key": "ID1",
-        "fields": {
-            "author": "author1",
-            "title": "title",
-            "journal": "journal",
-            "year": 1999,
-            "volume": "volume",
-            "pages": "1--100"
-        }
-    },
-    {
-        "citation_type": "article",
-        "key": "ID2",
-        "fields": {
-            "author": "author2",
-            "title": "title",
-            "journal": "journal",
-            "year": 1999,
-            "volume": "volume",
-            "pages": "1--100"
-        }
-    },
-    {
-        "citation_type": "article",
-        "key": "ID",
-        "fields": {
-            "author": "authori",
-            "title": "title",
-            "journal": "journal",
-            "year": 1999,
-            "volume": "volume",
-            "pages": "1--100"
-        }
-    },
-    {
-        "citation_type": "article",
-        "key": "ID1",
-        "fields": {
-            "author": "author1",
-            "title": "title",
-            "journal": "journal",
-            "year": 1999,
-            "volume": "volume",
-            "pages": "1--100"
-        }
-    },
-    {
-        "citation_type": "article",
-        "key": "ID2",
-        "fields": {
-            "author": "author2",
-            "title": "title",
-            "journal": "journal",
-            "year": 1999,
-            "volume": "volume",
-            "pages": "1--100"
+            "author": "Henri Häkkinen",
+            "title": "Hävettäisi olla helsinkiläinen",
+            "journal": "Jylkkäri",
+            "year": 2024,
+            "volume": "6",
+            "pages": "5"
         }
     }
 ]
