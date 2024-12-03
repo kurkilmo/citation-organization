@@ -21,7 +21,7 @@ class UiLibrary:
             )
     
     def output_should_contain_bib(self, id, author):
-        self.output_should_contain(self._format_bib(id, author))
+        self.output_should_contain('\n' + self._format_bib(id, author))
         
     def _format_bib(self, id, author):
         return f"""@article{{{id},
