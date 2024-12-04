@@ -4,7 +4,7 @@ import io
 
 
 class CitationRepository:
-    def __init__(self, file_path="src/citations.json"):
+    def __init__(self, file_path="citations.json"):
         self._file_path = file_path
         self._citations = self._load_from_file()
 
@@ -12,14 +12,14 @@ class CitationRepository:
         try:
             with open(self._file_path, "r", encoding="utf-8") as file:
                 data = json.load(file)
-                return [Citation(**item) for item in data]
+                return [Citation(item['citation_type'], item['key'], item['fields'], item.get('keywords', [])) for item in data]
         except (FileNotFoundError, json.JSONDecodeError):
             return []
 
     def _save_to_file(self):
         with open(self._file_path, "w", encoding="utf-8") as file:
             json.dump(
-                [citation.__dict__ for citation in self._citations], file, ensure_ascii=False, indent=4
+                [vars(citation) for citation in self._citations], file, ensure_ascii=False, indent=4
             )
 
     def add_new(self, citation):
@@ -41,3 +41,4 @@ Returns True if succesful.'''
                 file.writelines(str(citation)+'\n\n')
             return True
         return False
+    

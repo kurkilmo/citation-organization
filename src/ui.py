@@ -50,6 +50,13 @@ class UI:
                 self.io.write("Invalid year")
         volume = self.io.read("Give journal volume: ")
         pages = self.io.read("Give pages of article: ")
+        keywords = []
+        self.io.write("Add keywords: ")
+        while True:
+            keyword = self.io.read("Keyword: ")
+            if not keyword:
+                break
+            keywords.append(keyword)
 
         self.citation_repository.add_new(
             Citation(
@@ -62,7 +69,8 @@ class UI:
                     "year": year,
                     "volume": volume,
                     "pages": pages
-                }
+                },
+                keywords
             )
         )
 
@@ -84,4 +92,3 @@ class UI:
             self.io.write(f"Successfully wrote to {filename}")
         else:
             self.io.write("Error while writing")
-
