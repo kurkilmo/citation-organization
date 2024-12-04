@@ -31,7 +31,7 @@ class UiLibrary:
     year = {{1999}},
     volume = {{volume}},
     pages = {{1--100}}
-}}"""
+}}% Keywords: keyword1, keyword2"""
     
     def file_should_containt(self, filename, id, author):
         with open(filename, "r") as file:

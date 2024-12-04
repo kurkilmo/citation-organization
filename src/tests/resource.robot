@@ -18,6 +18,9 @@ Input Citation Information
     Input  1999
     Input  volume
     Input  1--100
+    Input  keyword1
+    Input  keyword2
+    Input  \    # \ merkkaa robotissa tyhjää stringiä
     
 Input Print Command
     Input    print
