@@ -39,7 +39,9 @@ class UI:
         identifier = self.io.read("Give citation identifier: ")
         authors = []
         while True:
-            author = self.io.read("Give article author/authors (Press Enter to continue): ")
+            author = self.io.read("Give article author/authors\nformat: first name last name or last name, first name (Press Enter to continue): ")
+            if(author.strip()==""):
+                print("Error: Invalid input!")
             if not author:
                 if not authors:
                     print("Invalid input: No authors!")

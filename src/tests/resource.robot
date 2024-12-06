@@ -10,9 +10,10 @@ Input Export Command
     Input    export
 
 Input Citation Information
-    [Arguments]  ${ID}  ${author}
+    [Arguments]  ${ID}  ${authors}
     Input  ${ID}
-    Input  ${author}
+    Input  ${authors}
+    Input  \
     Input  title
     Input  journal
     Input  1999
