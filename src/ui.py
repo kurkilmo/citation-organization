@@ -38,7 +38,17 @@ class UI:
     def _create(self):
         self.io.write("Adding new article")
         identifier = self.io.read("Give citation identifier: ")
-        author = self.io.read("Give article author: ")
+        authors = []
+        while True:
+            author = self.io.read("Give article author/authors\nformat: first name last name or last name, first name (Press Enter to continue): ")
+            if(author.strip()==""):
+                print("Error: Invalid input!")
+            if not author:
+                if not authors:
+                    print("Invalid input: No authors!")
+                    continue
+                break   
+            authors.append(author)
         title = self.io.read("Give article title: ")
         journal = self.io.read("Give article journal: ")
         while True:
@@ -64,7 +74,7 @@ class UI:
                 "article",
                 identifier,
                 {
-                    "author": author,
+                    "authors": authors,
                     "title": title,
                     "journal": journal,
                     "year": year,

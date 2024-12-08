@@ -1,73 +1,18 @@
 [
     {
         "citation_type": "article",
-        "key": "id1",
+        "key": "5",
         "fields": {
-            "author": "mikko",
-            "title": "tutkimus",
-            "journal": "kirja",
-            "year": 2000,
-            "volume": "kolmas",
-            "pages": "viis"
-        },
-        "keywords": [
-            "mikko",
-            "kirja",
-            "2000",
-            "kolmas"
-        ]
-    },
-    {
-        "citation_type": "article",
-        "key": "id007",
-        "fields": {
-            "author": "matti",
-            "title": "tutkiminen",
-            "journal": "kirjailu",
-            "year": 2000,
-            "volume": "nelj's vaikka",
-            "pages": "kolome"
-        },
-        "keywords": [
-            "kauko",
-            "minun täytyy lähteä",
-            "ei",
-            "eise",
-            "eise vielä"
-        ]
-    },
-    {
-        "citation_type": "article",
-        "key": "idd",
-        "fields": {
-            "author": "jaska",
-            "title": "lenkki",
-            "journal": "muistiinpanot",
-            "year": 20,
-            "volume": "3",
+            "authors": [
+                "5",
+                "5"
+            ],
+            "title": "",
+            "journal": "",
+            "year": 44,
+            "volume": "",
             "pages": ""
         },
-        "keywords": [
-            "jaska",
-            "mikko",
-            "lenkki",
-            "terve",
-            "eise vielä"
-        ]
-    },
-    {
-        "citation_type": "article",
-        "key": "j",
-        "fields": {
-            "author": "j",
-            "title": "j",
-            "journal": "j",
-            "year": 2,
-            "volume": "j",
-            "pages": "j"
-        },
-        "keywords": [
-            "mikko"
-        ]
+        "keywords": []
     }
 ]
