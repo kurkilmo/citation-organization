@@ -122,6 +122,7 @@ class UI:
                     i+=1
             
             if len(matching) > 0:
+                choice = 0
                 if len(matching) > 1:
                     while True:
                         which = self.io.read("Which one to interact with? (type number): ")
