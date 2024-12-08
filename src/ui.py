@@ -9,7 +9,8 @@ class UI:
             "help": (self._help, "Print this help message"),
             "create": (self._create, "Create new article citation"),
             "print": (self._print_all, "Print all citations"),
-            "export": (self._export, "Export citations in bibtex format")
+            "export": (self._export, "Export citations in bibtex format"),
+            "select": (self._select, "Select an existing citation to interact with")
         }
 
     def handle_SIGINT(self, signal, frame):
@@ -92,3 +93,56 @@ class UI:
             self.io.write(f"Successfully wrote to {filename}")
         else:
             self.io.write("Error while writing")
+
+    def _select(self):
+        citations = self.citation_repository.get_all()
+        if not citations:
+            self.io.write('\nThere are no citations yet')
+            return
+        while True:
+            matching = []
+            keys = self.io.read("Enter a keyword/keywords (type exit to exit): ")
+            if keys == 'exit':
+                break
+            i = 0
+            for citation in citations:
+                if keys in citation.keywords:
+                    self.io.write(f'\n numero {str(i)}:\n {str(citation)}')
+                    matching.append(citation)
+                    i+=1
+            
+            if len(matching) > 0:
+                if len(matching) > 1:
+                    while True:
+                        which = self.io.read("Which one to interact with? (type number): ")
+                        try:
+                            if int(which) < len(matching):
+                                choice = int(which)
+                                break
+                            else:
+                                self.io.write("Give one of the displayed numbers\n")
+                        except ValueError:
+                            self.io.write("Please enter a number\n")
+                while True:
+                    action = self.io.read("Would you like to:\nedit\nremove\nselected citation? (empty will cancel selection): ")
+                    if action == 'remove':
+                        try:
+                            self.citation_repository.remove_one(matching[choice])
+                            self.io.write('\nCitation removed successfully')
+                            break
+                        except Exception:
+                            self.io.write('ei onnistunu tämä näi nyt')
+                    if action == 'edit':
+                        try:
+                            self.io.write('\n In future you would be able to edit it')
+                            self.citation_repository.edit_citation(matching[choice])
+                            break
+                        except Exception:
+                            self.io.write('\nEdition did not succeed, might be limited')
+                    if not action:
+                        self.io.write('\nexited')
+                        break
+                    self.io.write('\nSorry, that option isn\'t available')
+            else:
+                self.io.write('\nNo citations match given keywords')
+        

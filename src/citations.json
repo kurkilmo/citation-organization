@@ -1,1 +1,80 @@
-[]
+[
+    {
+        "citation_type": "article",
+        "key": "ID1",
+        "fields": {
+            "author": "Pekka Pekkanen",
+            "title": "Hemo Artikkeli",
+            "journal": "Pähee lehti",
+            "year": 2000,
+            "volume": "4",
+            "pages": "10--20"
+        },
+        "keywords": ["Pekka", "2000", "Hemo"]
+    },
+    {
+        "citation_type": "article",
+        "key": "ID2",
+        "fields": {
+            "author": "Kalle Kallenen",
+            "title": "Tää on tämmöstä",
+            "journal": "Aku Ankka",
+            "year": 2019,
+            "volume": "42",
+            "pages": "1--20"
+        },
+        "keywords": ["Akuankka"]
+    },
+    {
+        "citation_type": "article",
+        "key": "ID3",
+        "fields": {
+            "author": "Henri Häkkinen",
+            "title": "Hävettäisi olla helsinkiläinen",
+            "journal": "Jylkkäri",
+            "year": 2024,
+            "volume": "6",
+            "pages": "5"
+        },
+        "keywords": ["5", "Suutarin hesalaiset", "Henkka"]
+    },
+    {
+        "citation_type": "article",
+        "key": "kirja1",
+        "fields": {
+            "author": "janne",
+            "title": "vihko",
+            "journal": "",
+            "year": 2012,
+            "volume": "",
+            "pages": ""
+        },
+        "keywords": ["2012", "vihko", "janne"]
+    },
+    {
+        "citation_type": "article",
+        "key": "",
+        "fields": {
+            "author": "",
+            "title": "",
+            "journal": "",
+            "year": "",
+            "volume": "",
+            "pages": ""
+        },
+        "keywords": [""]
+    },
+    {
+        "citation_type": "article",
+        "key": "id00",
+        "fields": {
+            "author": "jari",
+            "title": "markku",
+            "journal": "kirja",
+            "year": 201,
+            "volume": "kolmas luku",
+            "pages": "1"
+        },
+        "keywords": ["jukolan eero", "markku", "jari"]
+    }
+]

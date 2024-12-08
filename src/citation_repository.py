@@ -26,6 +26,15 @@ class CitationRepository:
         self._citations.append(citation)
         self._save_to_file()
 
+    def remove_one(self, citation):
+        index = self._citations.index(citation)
+        self._citations.pop(index)
+        self._save_to_file()
+
+    def edit_citation(self, citation):
+        index = self._citations.index(citation)
+        print(self._citations[index])
+
     def get_all(self):
         return self._citations
     
