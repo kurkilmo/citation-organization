@@ -145,8 +145,7 @@ class UI:
                             self.io.write('ei onnistunu tämä näi nyt')
                     if action == 'edit':
                         try:
-                            self.io.write('\n In future you would be able to edit it')
-                            self.citation_repository.edit_citation(matching[choice])
+                            self._edit_citation(matching[choice])
                             break
                         except Exception:
                             self.io.write('\nEdition did not succeed, might be limited')
@@ -156,4 +155,51 @@ class UI:
                     self.io.write('\nSorry, that option isn\'t available')
             else:
                 self.io.write('\nNo citations match given keywords')
+
+    def _edit_citation(self, citation):
+        self.io.write('\n in each attribute, enter new value or if you want to keep current value, keep empty')
+        authors = []
+        while True:
+            author = self.io.read("Give article author/authors\nformat: first name last name or last name, first name (Press Enter to continue): ")
+            if(author.strip()==""):
+                print("Error: Invalid input!")
+            if not author:
+                if not authors:
+                    print("Invalid input: No authors!")
+                    continue
+                break   
+            authors.append(author)
+        title = self.io.read("Give article title: ")
+        journal = self.io.read("Give article journal: ")
+        while True:
+            year = self.io.read("Give article year: ")
+            if year == "": break
+            try:
+                year = int(year)
+                break
+            except ValueError:
+                self.io.write("Invalid year")
+        volume = self.io.read("Give journal volume: ")
+        pages = self.io.read("Give pages of article: ")
+        keywords = []
+        self.io.write("Add keywords: ")
+        while True:
+            keyword = self.io.read("Keyword: ")
+            if not keyword:
+                break
+            keywords.append(keyword)
+        newFields = {
+                        "authors": authors,
+                        "title": title,
+                        "journal": journal,
+                        "year": year,
+                        "volume": volume,
+                        "pages": pages,
+                        "keywords": keywords
+                    }
+        try:
+            self.citation_repository.edit_citation(citation, newFields)
+            self.io.write('\nChanges saved')
+        except Exception as e:
+            self.io.write(e)
         

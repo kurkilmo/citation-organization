@@ -31,9 +31,13 @@ class CitationRepository:
         self._citations.pop(index)
         self._save_to_file()
 
-    def edit_citation(self, citation):
-        index = self._citations.index(citation)
-        print(self._citations[index])
+    def edit_citation(self, citation, fields):
+        #print(fields['authors'])
+        print(citation.fields['authors'])
+        if not fields['authors']:
+            fields['authors'] = citation.fields['authors']
+        self._save_to_file()
+
 
     def get_all(self):
         return self._citations
