@@ -1,18 +1,60 @@
 [
     {
         "citation_type": "article",
-        "key": "5",
+        "key": "HREF1",
         "fields": {
             "authors": [
-                "5",
-                "5"
+                "Heikkinen, Ronja"
             ],
-            "title": "",
-            "journal": "",
-            "year": 44,
-            "volume": "",
-            "pages": ""
+            "title": "Kokemuksia alan harjoittelusta Jamixilla",
+            "journal": "A HREF",
+            "year": 2023,
+            "volume": "1",
+            "pages": "n--n+1"
         },
-        "keywords": []
+        "keywords": [
+            "Linkki",
+            "A HREF",
+            "Harjoittelut"
+        ]
+    },
+    {
+        "citation_type": "article",
+        "key": "JYL1",
+        "fields": {
+            "authors": [
+                "Henri Häkkinen"
+            ],
+            "title": "Joku kaatoi skuutit Lähteellä",
+            "journal": "Jylkkäri",
+            "year": 2024,
+            "volume": "6",
+            "pages": "12"
+        },
+        "keywords": [
+            "Jylkkäri",
+            "Skuutit",
+            "Lähde"
+        ]
+    },
+    {
+        "citation_type": "article",
+        "key": "JYL2",
+        "fields": {
+            "authors": [
+                "Nenonen, Saara",
+                "Mikko Kuparinen"
+            ],
+            "title": "Opiskelevat Muusikot",
+            "journal": "Jylkkäri",
+            "year": 2024,
+            "volume": "6",
+            "pages": "14--19"
+        },
+        "keywords": [
+            "Musiikki",
+            "Yliopisto",
+            "Jylkkäri"
+        ]
     }
 ]
