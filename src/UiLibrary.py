@@ -14,19 +14,21 @@ class UiLibrary:
 
     def output_should_contain(self, value):
         outputs = self._io.outputs
-
-        if not value in outputs:
+        contains = False
+        for output in outputs:
+            if value in output:
+                contains = True
+        if not contains:
             raise AssertionError(
                 f"Output \"{value}\" is not in {str(outputs)}"
             )
     
     def output_should_contain_bib(self, id, author):
-        self.output_should_contain('\n' + self._format_bib(id, author))
+        self.output_should_contain('\n' + self._format_bib(id, [author]))
         
     def _format_bib(self, id, authors):
-
         return f"""@article{{{id},
-    authors = {{{authors}}},
+    authors = {{{" and ".join(authors)}}},
     title = {{title}},
     journal = {{journal}},
     year = {{1999}},
@@ -37,7 +39,7 @@ class UiLibrary:
     def file_should_containt(self, filename, id, author):
         with open(filename, "r") as file:
             text = file.read()
-            if not self._format_bib(id, author) in text:
+            if not self._format_bib(id, [author]) in text:
                 raise AssertionError(
                     f"Citation {id}, {author} is not in {filename}"
                 )
