@@ -46,12 +46,19 @@ class CitationRepository:
         self._citations = []
         self._save_to_file()
     
-    def export_all(self, filename):
+    def export(self, filename, keywords):
         '''Exports citations in bibtex format.
 Returns True if succesful.'''
-        with open(filename, "w") as file:
-            for citation in self._citations:
-                file.writelines(str(citation)+'\n\n')
-            return True
-        return False
+        try:
+            with open(filename, "w") as file:
+                for citation in self._citations:
+                    include = len(
+                        set(keywords).intersection(set(citation.keywords))
+                    ) > 0 or not keywords
+
+                    if include:
+                        file.writelines(str(citation)+'\n\n')
+                return True
+        except:
+            return False
     

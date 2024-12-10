@@ -93,12 +93,38 @@ class UI:
             self.io.write('\n' + str(citation))
     
     def _export(self):
+        export_all = False
+        while True:
+            cmd = self.io.read("Export all citations? [Y/n] > ").lower().strip()
+            if cmd == 'y' or cmd == "":
+                export_all = True
+                break
+            elif cmd == 'n': break
+            else:
+                print("Invalid option, specify 'y' or 'n' for yes/no or empty input for yes")
+
+        keywords = []
+        if not export_all:
+            available_keywords = []
+            for citation in self.citation_repository.get_all():
+                available_keywords += citation.keywords
+            self.io.write("Available keywords: " + ", ".join(set(available_keywords)))
+            while True:
+                keyword = self.io.read(
+                    "Give keyword to include in export, empty input proceeds:\n> "
+                ).strip()
+                if not keyword: break
+                if keyword not in available_keywords:
+                    self.io.write("Unknown keyword")
+                    continue
+                keywords.append(keyword)
+
         working_path = os.getcwd()
         filename = self.io.read(
             f"""Give file path for export:
 (relative to working path {working_path})
 > """)
-        succeed = self.citation_repository.export_all(filename)
+        succeed = self.citation_repository.export(filename, keywords)
         if succeed:
             self.io.write(f"Successfully wrote to {filename}")
         else:
