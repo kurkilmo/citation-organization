@@ -28,7 +28,7 @@ class UiLibrary:
         
     def _format_bib(self, id, authors):
         return f"""@article{{{id},
-    authors = {{{" and ".join(authors)}}},
+    author = {{{" and ".join(authors)}}},
     title = {{title}},
     journal = {{journal}},
     year = {{1999}},
