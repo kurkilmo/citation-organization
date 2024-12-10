@@ -10,10 +10,14 @@ class Citation:
         self.keywords = keywords
     
 
+
     def __str__(self):
         result = f"@{self.citation_type}{{{self.key},\n"
         for key in self.fields.keys():
-            result += f"    {key} = {{{self.fields[key]}}},\n"
+            if key == "authors":
+                result += f"   {key} = {{{" and ".join(self.fields[key])}}},\n"
+            else:
+                result += f"    {key} = {{{self.fields[key]}}},\n"
         result = result[:-2]
         result += "\n}"
         if self.keywords:
