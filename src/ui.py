@@ -182,18 +182,17 @@ class UI:
             else:
                 self.io.write('\nNo citations match given keywords')
 
-    def _edit_citation(self, citation):
+    def _edit_citation(self, citation: Citation):
         self.io.write('\n in each attribute, enter new value or if you want to keep current value, keep empty')
         authors = []
+        identifier = self.io.read("Give article identifier: ")
         while True:
             author = self.io.read("Give article author/authors\nformat: first name last name or last name, first name (Press Enter to continue): ")
-            if(author.strip()==""):
+            if author == "": break
+            elif author.strip() == "":
                 print("Error: Invalid input!")
-            if not author:
-                if not authors:
-                    print("Invalid input: No authors!")
-                    continue
-                break   
+                continue
+  
             authors.append(author)
         title = self.io.read("Give article title: ")
         journal = self.io.read("Give article journal: ")
@@ -214,17 +213,22 @@ class UI:
             if not keyword:
                 break
             keywords.append(keyword)
-        newFields = {
-                        "authors": authors,
-                        "title": title,
-                        "journal": journal,
-                        "year": year,
-                        "volume": volume,
-                        "pages": pages,
-                        "keywords": keywords
-                    }
+        fields = citation.fields
+        new_citation = Citation(
+            "article",
+            identifier or citation.key,
+            {
+                "authors" : authors or fields["authors"],
+                "title" : title or fields["title"],
+                "journal": journal or fields["journal"],
+                "year": year or fields["year"],
+                "volume": volume or fields["volume"],
+                "pages": pages or fields["pages"],
+            },
+            keywords or citation.keywords
+        )
         try:
-            self.citation_repository.edit_citation(citation, newFields)
+            self.citation_repository.edit_citation(citation, new_citation)
             self.io.write('\nChanges saved')
         except Exception as e:
             self.io.write(e)
