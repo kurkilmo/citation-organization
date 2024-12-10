@@ -22,3 +22,5 @@ jobs:
         run: poetry install
       - name: Run Robot Framework Tests
         run: poetry run robot src/tests/
+      - name: Run pytest tests
+        run: poetry run pytest
