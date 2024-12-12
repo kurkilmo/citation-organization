@@ -15,10 +15,10 @@ class TestSelect(unittest.TestCase):
         )
 
         for citation in test_citations:
-            create_citation(
+            create_article(
                 self.io,
                 citation.key,
-                citation.fields["authors"],
+                citation.fields["author"],
                 citation.fields["title"],
                 citation.fields["journal"],
                 str(citation.fields["year"]),

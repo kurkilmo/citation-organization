@@ -112,5 +112,18 @@
             "edetessä",
             "eteneminen"
         ]
+    },
+    {
+        "citation_type": "inproceedings",
+        "key": "idd",
+        "fields": {
+            "author": [
+                "ert"
+            ],
+            "title": "title",
+            "year": 23,
+            "booktitle": "title"
+        },
+        "keywords": []
     }
 ]

@@ -74,7 +74,7 @@ class UI:
             volume = self.io.read("Give journal volume: ")
             pages = self.io.read("Give pages of article: ")
             fields = {
-                "authors": authors,
+                "author": authors,
                 "title": title,
                 "journal": journal,
                 "year": year,
@@ -84,7 +84,7 @@ class UI:
         if citation_type == "inproceedings":
             booktitle = self.io.read("Give inproceedings booktitle: ")
             fields = {
-                "authors": authors,
+                "author": authors,
                 "title": title,
                 "year": year,
                 "booktitle": booktitle
@@ -227,22 +227,8 @@ class UI:
             journal = self.io.read("Give article journal: ")
             volume = self.io.read("Give journal volume: ")
             pages = self.io.read("Give pages of article: ")
-            fields = {
-                "authors": authors,
-                "title": title,
-                "journal": journal,
-                "year": year,
-                "volume": volume,
-                "pages": pages
-            }
         if citation.citation_type == "inproceedings":
             booktitle = self.io.read("Give inproceedings booktitle: ")
-            fields = {
-                "authors": authors,
-                "title": title,
-                "year": year,
-                "booktitle": booktitle
-            }
         keywords = []
         self.io.write("Add keywords: ")
         while True:
@@ -253,7 +239,7 @@ class UI:
         fields = citation.fields
         if citation.citation_type == "article":
             new_fields = {
-                "authors" : authors or fields["authors"],
+                "author" : authors or fields["authors"],
                 "title" : title or fields["title"],
                 "journal": journal or fields["journal"],
                 "year": year or fields["year"],
@@ -262,7 +248,7 @@ class UI:
             }
         if citation.citation_type == "inproceedings":
             new_fields = {
-                "authors" : authors or fields["authors"],
+                "author" : authors or fields["authors"],
                 "title" : title or fields["title"],
                 "year": year or fields["year"],
                 "booktitle": booktitle or fields["booktitle"],
