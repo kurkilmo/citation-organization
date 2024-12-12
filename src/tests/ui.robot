@@ -13,7 +13,7 @@ Input Create and Create Citation
 Create New Citation
     Input Create and Create Citation  ID  authori
     Start Ui
-    Output Should Contain    Article ID added.
+    Output Should Contain    Publication ID added.
 
 Print Citations
     Input Create and Create Citation    ID1    author1

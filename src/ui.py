@@ -61,16 +61,16 @@ class UI:
                 break   
             authors.append(author)
         title = self.io.read("Give publication title: ")
-        while True:
-            year = self.io.read("Give publication year: ")
-            if year == "": break
-            try:
-                year = int(year)
-                break
-            except ValueError:
-                self.io.write("Invalid year")
         if citation_type == "article":
             journal = self.io.read("Give article journal: ")
+            while True:
+                year = self.io.read("Give publication year: ")
+                if year == "": break
+                try:
+                    year = int(year)
+                    break
+                except ValueError:
+                    self.io.write("Invalid year")
             volume = self.io.read("Give journal volume: ")
             pages = self.io.read("Give pages of article: ")
             fields = {
@@ -82,6 +82,14 @@ class UI:
                 "pages": pages
             }
         if citation_type == "inproceedings":
+            while True:
+                year = self.io.read("Give publication year: ")
+                if year == "": break
+                try:
+                    year = int(year)
+                    break
+                except ValueError:
+                    self.io.write("Invalid year")
             booktitle = self.io.read("Give inproceedings booktitle: ")
             fields = {
                 "author": authors,
@@ -215,19 +223,27 @@ class UI:
   
             authors.append(author)
         title = self.io.read("Give publication title: ")
-        while True:
-            year = self.io.read("Give publication year: ")
-            if year == "": break
-            try:
-                year = int(year)
-                break
-            except ValueError:
-                self.io.write("Invalid year")
         if citation.citation_type == "article":
             journal = self.io.read("Give article journal: ")
+            while True:
+                year = self.io.read("Give publication year: ")
+                if year == "": break
+                try:
+                    year = int(year)
+                    break
+                except ValueError:
+                    self.io.write("Invalid year")
             volume = self.io.read("Give journal volume: ")
             pages = self.io.read("Give pages of article: ")
         if citation.citation_type == "inproceedings":
+            while True:
+                year = self.io.read("Give publication year: ")
+                if year == "": break
+                try:
+                    year = int(year)
+                    break
+                except ValueError:
+                    self.io.write("Invalid year")
             booktitle = self.io.read("Give inproceedings booktitle: ")
         keywords = []
         self.io.write("Add keywords: ")

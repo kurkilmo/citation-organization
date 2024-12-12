@@ -50,8 +50,8 @@ def create_article(io, id, authors, title, journal, year, volume, pages, keyword
         io.add_input(author)
     io.add_input("")
     io.add_input(title)
-    io.add_input(year)
     io.add_input(journal)
+    io.add_input(year)
     io.add_input(volume)
     io.add_input(pages)
     for key in keywords:

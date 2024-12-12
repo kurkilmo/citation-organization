@@ -125,5 +125,35 @@
             "booktitle": "title"
         },
         "keywords": []
+    },
+    {
+        "citation_type": "article",
+        "key": "",
+        "fields": {
+            "author": [
+                "euth"
+            ],
+            "title": "",
+            "journal": "",
+            "year": "",
+            "volume": "",
+            "pages": ""
+        },
+        "keywords": []
+    },
+    {
+        "citation_type": "article",
+        "key": "ihj",
+        "fields": {
+            "author": [
+                "er"
+            ],
+            "title": "",
+            "journal": "",
+            "year": "",
+            "volume": "",
+            "pages": ""
+        },
+        "keywords": []
     }
 ]

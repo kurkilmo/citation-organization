@@ -5,6 +5,7 @@ Library    ../UiLibrary.py
 *** Keywords ***
 Input Create Command
     Input    create
+    Input    article
 
 Input Export Command
     Input    export
