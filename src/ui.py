@@ -7,7 +7,7 @@ class UI:
         self.io = io
         self.commands = {
             "help": (self._help, "Print this help message"),
-            "create": (self._create, "Create new article citation"),
+            "create": (self._create, "Create new publication citation"),
             "print": (self._print_all, "Print all citations"),
             "export": (self._export, "Export citations in bibtex format"),
             "select": (self._select, "Select an existing citation to interact with")
@@ -20,7 +20,7 @@ class UI:
     def start(self):
         signal.signal(signal.SIGINT, self.handle_SIGINT)
         self.io.write("Welcome!\nType \"help\" for help.")
-        self.io.write("Type \"create\" to create a new article citation")
+        self.io.write("Type \"create\" to create a new publication citation")
         while True:
             command = self.io.read("> ")
             if not command: break
@@ -36,11 +36,22 @@ class UI:
             self.io.write(f"{key}: {self.commands[key][1]}")
     
     def _create(self):
-        self.io.write("Adding new article")
+        while True:
+            citation_type = self.io.read("Which type of publication would you like to create?\n(article or inproceedings, empty to cancel): ")
+            if not citation_type:
+                self.io.write("Cancelled creating citation\n")
+                return
+            if citation_type == "article" or citation_type == "inproceedings":
+                break
+            self.io.write("Unfortunately that type is not supported\n")
+        if citation_type == "article":
+            self.io.write("Adding new article")
+        if citation_type == "inproceedings":
+            self.io.write("Adding new inproceedings")
         identifier = self.io.read("Give citation identifier: ")
         authors = []
         while True:
-            author = self.io.read("Give article author/authors\nformat: first name last name or last name, first name (Press Enter to continue): ")
+            author = self.io.read("Give publication author/authors\nformat: first name last name or last name, first name (Press Enter to continue): ")
             if(author.strip()==""):
                 print("Error: Invalid input!")
             if not author:
@@ -49,18 +60,35 @@ class UI:
                     continue
                 break   
             authors.append(author)
-        title = self.io.read("Give article title: ")
-        journal = self.io.read("Give article journal: ")
+        title = self.io.read("Give publication title: ")
         while True:
-            year = self.io.read("Give article year: ")
+            year = self.io.read("Give publication year: ")
             if year == "": break
             try:
                 year = int(year)
                 break
             except ValueError:
                 self.io.write("Invalid year")
-        volume = self.io.read("Give journal volume: ")
-        pages = self.io.read("Give pages of article: ")
+        if citation_type == "article":
+            journal = self.io.read("Give article journal: ")
+            volume = self.io.read("Give journal volume: ")
+            pages = self.io.read("Give pages of article: ")
+            fields = {
+                "authors": authors,
+                "title": title,
+                "journal": journal,
+                "year": year,
+                "volume": volume,
+                "pages": pages
+            }
+        if citation_type == "inproceedings":
+            booktitle = self.io.read("Give inproceedings booktitle: ")
+            fields = {
+                "authors": authors,
+                "title": title,
+                "year": year,
+                "booktitle": booktitle
+            }
         keywords = []
         self.io.write("Add keywords: ")
         while True:
@@ -68,24 +96,16 @@ class UI:
             if not keyword:
                 break
             keywords.append(keyword)
-
         self.citation_repository.add_new(
             Citation(
-                "article",
+                citation_type,
                 identifier,
-                {
-                    "authors": authors,
-                    "title": title,
-                    "journal": journal,
-                    "year": year,
-                    "volume": volume,
-                    "pages": pages
-                },
+                fields,
                 keywords
             )
         )
 
-        self.io.write(f"Article {identifier} added.")
+        self.io.write(f"Publication {identifier} added.")
 
     def _print_all(self):
         citations = self.citation_repository.get_all()
@@ -161,7 +181,7 @@ class UI:
                         except ValueError:
                             self.io.write("Please enter a number\n")
                 while True:
-                    action = self.io.read("Would you like to:\nedit\nremove\nselected citation? (empty will cancel selection): ")
+                    action = self.io.read("\nWould you like to:\nedit\nremove\nselected citation? (empty will cancel selection): ")
                     if action == 'remove':
                         try:
                             self.citation_repository.remove_one(matching[choice])
@@ -185,27 +205,44 @@ class UI:
     def _edit_citation(self, citation: Citation):
         self.io.write('\n in each attribute, enter new value or if you want to keep current value, keep empty')
         authors = []
-        identifier = self.io.read("Give article identifier: ")
+        identifier = self.io.read("Give publication identifier: ")
         while True:
-            author = self.io.read("Give article author/authors\nformat: first name last name or last name, first name (Press Enter to continue): ")
+            author = self.io.read("Give publication author/authors\nformat: first name last name or last name, first name (Press Enter to continue): ")
             if author == "": break
             elif author.strip() == "":
                 print("Error: Invalid input!")
                 continue
   
             authors.append(author)
-        title = self.io.read("Give article title: ")
-        journal = self.io.read("Give article journal: ")
+        title = self.io.read("Give publication title: ")
         while True:
-            year = self.io.read("Give article year: ")
+            year = self.io.read("Give publication year: ")
             if year == "": break
             try:
                 year = int(year)
                 break
             except ValueError:
                 self.io.write("Invalid year")
-        volume = self.io.read("Give journal volume: ")
-        pages = self.io.read("Give pages of article: ")
+        if citation.citation_type == "article":
+            journal = self.io.read("Give article journal: ")
+            volume = self.io.read("Give journal volume: ")
+            pages = self.io.read("Give pages of article: ")
+            fields = {
+                "authors": authors,
+                "title": title,
+                "journal": journal,
+                "year": year,
+                "volume": volume,
+                "pages": pages
+            }
+        if citation.citation_type == "inproceedings":
+            booktitle = self.io.read("Give inproceedings booktitle: ")
+            fields = {
+                "authors": authors,
+                "title": title,
+                "year": year,
+                "booktitle": booktitle
+            }
         keywords = []
         self.io.write("Add keywords: ")
         while True:
@@ -214,17 +251,26 @@ class UI:
                 break
             keywords.append(keyword)
         fields = citation.fields
-        new_citation = Citation(
-            "article",
-            identifier or citation.key,
-            {
+        if citation.citation_type == "article":
+            new_fields = {
                 "authors" : authors or fields["authors"],
                 "title" : title or fields["title"],
                 "journal": journal or fields["journal"],
                 "year": year or fields["year"],
                 "volume": volume or fields["volume"],
                 "pages": pages or fields["pages"],
-            },
+            }
+        if citation.citation_type == "inproceedings":
+            new_fields = {
+                "authors" : authors or fields["authors"],
+                "title" : title or fields["title"],
+                "year": year or fields["year"],
+                "booktitle": booktitle or fields["booktitle"],
+            }
+        new_citation = Citation(
+            citation.citation_type,
+            identifier or citation.key,
+            new_fields,
             keywords or citation.keywords
         )
         try:
