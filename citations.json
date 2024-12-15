@@ -75,45 +75,6 @@
         ]
     },
     {
-        "citation_type": "article",
-        "key": "ed",
-        "fields": {
-            "authors": [
-                "Markko Jarkko",
-                "Jarkko, Markko"
-            ],
-            "title": "titel",
-            "journal": "12",
-            "year": 22,
-            "volume": "34555",
-            "pages": "12"
-        },
-        "keywords": [
-            "23, 23",
-            "23 23",
-            "23"
-        ]
-    },
-    {
-        "citation_type": "inproceedings",
-        "key": "etd3",
-        "fields": {
-            "authors": [
-                "kerkko herkko",
-                "herkko, kerkko"
-            ],
-            "title": "etenemisensä",
-            "year": 11,
-            "booktitle": "näillä mennään sitten etenemisen kannalta"
-        },
-        "keywords": [
-            "eteinen",
-            "eteenpäin",
-            "edetessä",
-            "eteneminen"
-        ]
-    },
-    {
         "citation_type": "inproceedings",
         "key": "idd",
         "fields": {
@@ -155,5 +116,39 @@
             "pages": ""
         },
         "keywords": []
+    },
+    {
+        "citation_type": "inproceedings",
+        "key": "inpr123",
+        "fields": {
+            "author": [
+                "."
+            ],
+            "title": "",
+            "year": "",
+            "booktitle": ""
+        },
+        "keywords": [
+            "."
+        ]
+    },
+    {
+        "citation_type": "inproceedings",
+        "key": "etd3",
+        "fields": {
+            "author": [
+                "teijo",
+                "teija"
+            ],
+            "title": "etenemisensä",
+            "year": 11,
+            "booktitle": "näillä mennään sitten etenemisen kannalta"
+        },
+        "keywords": [
+            "eteinen",
+            "eteenpäin",
+            "edetessä",
+            "eteneminen"
+        ]
     }
 ]
