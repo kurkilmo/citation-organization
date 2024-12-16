@@ -51,7 +51,7 @@ class UI:
         identifier = self.io.read("Give citation identifier: ")
         authors = []
         while True:
-            author = self.io.read("Give publication author/authors\nformat: first name last name or last name, first name (Press Enter to continue): ")
+            author = self.io.read("Give publication author/authors\nformat: Firstname Lastname or Lastname, Firstname (Press Enter to continue): ")
             if not author or author.strip()=="":
                 if not authors:
                     print("Invalid input: No authors!")
@@ -163,7 +163,7 @@ class UI:
             return
         while True:
             matching = []
-            keys = self.io.read("Enter a keyword/keywords (Empty to cancel): ")
+            keys = self.io.read("Enter a keyword/keywords, empty to cancel \nYou can inspect existing keywords by printing all citations\n: ")
             if keys == "":
                 break
             i = 0
@@ -194,7 +194,7 @@ class UI:
                             self.io.write('\nCitation removed successfully')
                             break
                         except Exception:
-                            self.io.write('ei onnistunu tämä näi nyt')
+                            self.io.write('Removing citation failed')
                     if action == 'edit':
                         try:
                             self._edit_citation(matching[choice])
@@ -216,7 +216,7 @@ class UI:
         identifier = self.io.read(f"\nCurrent id is {citation.key}\nGive new identifier: ")
         self.io.write(f"\nCurrent author/s: {fields.get("author")}")
         while True:
-            author = self.io.read("Give new author/authors\nformat: first name last name or last name, first name (Press Enter to continue): ")
+            author = self.io.read("Give new author/authors\nformat: Firstname Lastname or Lastname, Firstname (Press Enter to continue): ")
             if author == "": break
             elif author.strip() == "":
                 print("Error: Invalid input!")

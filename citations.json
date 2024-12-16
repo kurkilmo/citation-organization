@@ -119,21 +119,6 @@
     },
     {
         "citation_type": "inproceedings",
-        "key": "inpr123",
-        "fields": {
-            "author": [
-                "."
-            ],
-            "title": "",
-            "year": "",
-            "booktitle": ""
-        },
-        "keywords": [
-            "."
-        ]
-    },
-    {
-        "citation_type": "inproceedings",
         "key": "etd3",
         "fields": {
             "author": [
