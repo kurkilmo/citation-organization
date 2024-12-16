@@ -13,12 +13,12 @@ class UI:
             "select": (self._select, "Select an existing citation to interact with")
         }
 
-    def handle_SIGINT(self, signal, frame):
+    def _quit(self, signal, frame):
         self.io.write("\nGoodbye!")
         sys.exit(0)
 
     def start(self):
-        signal.signal(signal.SIGINT, self.handle_SIGINT)
+        signal.signal(signal.SIGINT, self._quit)
         self.io.write("Welcome!\nType \"help\" for help.")
         self.io.write("Type \"create\" to create a new publication citation")
         while True:
@@ -29,6 +29,7 @@ class UI:
                 cmd()
             except KeyError:
                 self.io.write("Unknown command")
+        self._quit()
 
     def _help(self):
         self.io.write("Available commands:\n")
