@@ -242,40 +242,38 @@ class UI:
         authors = []
         fields = citation.fields
         identifier = self.io.read(f"\nCurrent id is {citation.key}\nGive new identifier: ")
-        self.io.write(f"\nCurrent author/s: {fields.get("author")}")
+        self.io.write(f"\nCurrent author/s: {", ".join(fields.get("author"))}")
         while True:
-            author = self.io.read("Give new author/authors\nformat: Firstname Lastname or Lastname, Firstname (Press Enter to continue): ")
+            author = self.io.read("Give new author/authors\nformat: Firstname Lastname or Lastname, Firstname (Press Enter to continue)\nAuthor: ")
             if author == "": break
             elif author.strip() == "":
                 print("Error: Invalid input!")
                 continue
   
             authors.append(author)
-        title = self.io.read(f"\nCurrent title: {fields['title']}\nGive new title: ")
-        if citation.citation_type == "article":
-            journal = self.io.read(f"\nCurrent journal: {fields['journal']}\nGive new journal: ")
-            self.io.write(f"\nCurrent year: {fields['year']}")
-            while True:
-                year = self.io.read("Give new publication year: ")
-                if year == "": break
-                try:
-                    year = int(year)
-                    break
-                except ValueError:
-                    self.io.write("Invalid year")
-            volume = self.io.read(f"\nCurrent volume: {fields['volume']}\nGive journal volume: ")
-            pages = self.io.read(f"\nCurrent pages: {fields['pages']}\nGive pages of article: ")
-        if citation.citation_type == "inproceedings":
-            self.io.write(f"\nCurrent year: {fields['year']}")
-            while True:
-                year = self.io.read("Give publication year: ")
-                if year == "": break
-                try:
-                    year = int(year)
-                    break
-                except ValueError:
-                    self.io.write("Invalid year")
-            booktitle = self.io.read(f"\nCurrent booktitle: {fields['booktitle']}\nGive inproceedings booktitle: ")
+
+
+        new_fields = citation.fields.copy()
+        new_fields["author"] = authors or citation.fields["author"]
+        
+        for key in citation.fields.keys():
+            if key in ["author", "doi", "url"]: continue
+            self.io.write(f"Current {key}: {citation.fields[key]}")
+            new_value = ""
+            if key == "year":
+                while True:
+                    year = self.io.read("Give new year: ")
+                    if year == "": break
+                    try:
+                        new_value = int(year)
+                        break
+                    except ValueError:
+                        self.io.write("Invalid year")
+            else:
+                new_value = self.io.read(f"Give new {key}: ")
+            if new_value:
+                new_fields[key] = new_value
+
         keywords = []
         self.io.write(f"\nCurrent keywords: {citation.keywords}")
         self.io.write("Add keywords: ")
@@ -284,23 +282,8 @@ class UI:
             if not keyword:
                 break
             keywords.append(keyword)
-        new_fields = dict()
-        if citation.citation_type == "article":
-            new_fields = {
-                "author" : authors or fields.get("author"),
-                "title" : title or fields["title"],
-                "journal": journal or fields["journal"],
-                "year": year or fields["year"],
-                "volume": volume or fields["volume"],
-                "pages": pages or fields["pages"],
-            }
-        if citation.citation_type == "inproceedings":
-            new_fields = {
-                "author" : authors or fields.get("author"),
-                "title" : title or fields["title"],
-                "year": year or fields["year"],
-                "booktitle": booktitle or fields["booktitle"],
-            }
+        
+
         new_citation = Citation(
             citation.citation_type,
             identifier or citation.key,
