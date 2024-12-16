@@ -1,5 +1,7 @@
 from citation import Citation
+from doi_service import get_citation_from_doi
 import signal, sys, os
+import re
 
 class UI:
     def __init__(self, io, citation_repository):
@@ -8,12 +10,13 @@ class UI:
         self.commands = {
             "help": (self._help, "Print this help message"),
             "create": (self._create, "Create new publication citation"),
+            "doi": (self._doi, "Import citation from DOI (Digital Object Identifier)"),
             "print": (self._print_all, "Print all citations"),
             "export": (self._export, "Export citations in bibtex format"),
-            "select": (self._select, "Select an existing citation to interact with")
+            "select": (self._select, "Select an existing citation to interact with"),
         }
 
-    def _quit(self, signal, frame):
+    def _quit(self, signal = None, frame = None):
         self.io.write("\nGoodbye!")
         sys.exit(0)
 
@@ -29,12 +32,21 @@ class UI:
                 cmd()
             except KeyError:
                 self.io.write("Unknown command")
-        self._quit()
 
     def _help(self):
         self.io.write("Available commands:\n")
         for key in self.commands:
             self.io.write(f"{key}: {self.commands[key][1]}")
+
+    def _add_keywords(self, citation: Citation):
+        keywords = []
+        self.io.write("Add keywords: ")
+        while True:
+            keyword = self.io.read("Keyword: ")
+            if not keyword:
+                break
+            keywords.append(keyword)
+        citation.keywords += keywords
     
     def _create(self):
         while True:
@@ -96,23 +108,38 @@ class UI:
                 "year": year,
                 "booktitle": booktitle
             }
-        keywords = []
-        self.io.write("Add keywords: ")
-        while True:
-            keyword = self.io.read("Keyword: ")
-            if not keyword:
-                break
-            keywords.append(keyword)
-        self.citation_repository.add_new(
-            Citation(
-                citation_type,
-                identifier,
-                fields,
-                keywords
-            )
+        new_citation = Citation(
+            citation_type,
+            identifier,
+            fields
         )
+        self._add_keywords(new_citation)
+        self.citation_repository.add_new(new_citation)
 
         self.io.write(f"Publication {identifier} added.")
+
+    def _doi(self):
+        doi = ""
+        regex = r"10(.\d{4,})+\/\d+(.\d+)*" # Matches any valid DOI
+        while True:
+            self.io.write("Give DOI string or an URL containing a DOI string.")
+            doi = self.io.read("DOI: ")
+            match = re.search(regex, doi)
+            if not match:
+                self.io.write("Invalid DOI")
+                continue
+            doi = match.group()
+            break
+        citation = get_citation_from_doi(doi)
+        if not citation:
+            self.io.write("An error occurred when requesting content")
+            return
+        
+        self.io.write(f"Citation {citation.key} imported succesfully.")
+        
+        self._add_keywords(citation)
+
+        self.citation_repository.add_new(citation)
 
     def _print_all(self):
         citations = self.citation_repository.get_all()
@@ -257,6 +284,7 @@ class UI:
             if not keyword:
                 break
             keywords.append(keyword)
+        new_fields = dict()
         if citation.citation_type == "article":
             new_fields = {
                 "author" : authors or fields.get("author"),
