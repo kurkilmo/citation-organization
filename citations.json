@@ -3,7 +3,7 @@
         "citation_type": "article",
         "key": "HREF1",
         "fields": {
-            "authors": [
+            "author": [
                 "Heikkinen, Ronja"
             ],
             "title": "Kokemuksia alan harjoittelusta Jamixilla",
@@ -22,7 +22,7 @@
         "citation_type": "article",
         "key": "JYL1",
         "fields": {
-            "authors": [
+            "author": [
                 "Henri Häkkinen"
             ],
             "title": "Joku kaatoi skuutit Lähteellä",
@@ -41,7 +41,7 @@
         "citation_type": "article",
         "key": "JYL2",
         "fields": {
-            "authors": [
+            "author": [
                 "Nenonen, Saara",
                 "Mikko Kuparinen"
             ],
@@ -58,82 +58,23 @@
         ]
     },
     {
-        "citation_type": "article",
-        "key": "g",
+        "citation_type": "book",
+        "key": "Myers_2024",
         "fields": {
-            "authors": [
-                "ww"
+            "month": "March",
+            "year": "2024",
+            "author": [
+                "Myers, Brad A."
             ],
-            "title": "",
-            "journal": "",
-            "year": "",
-            "volume": "",
-            "pages": ""
+            "publisher": "ACM",
+            "doi": "10.1145/3617448",
+            "url": "http://dx.doi.org/10.1145/3617448",
+            "isbn": "9798400709494",
+            "title": "Pick, Click, Flick!: The Story of Interaction Techniques"
         },
         "keywords": [
-            "f"
-        ]
-    },
-    {
-        "citation_type": "inproceedings",
-        "key": "idd",
-        "fields": {
-            "author": [
-                "ert"
-            ],
-            "title": "title",
-            "year": 23,
-            "booktitle": "title"
-        },
-        "keywords": []
-    },
-    {
-        "citation_type": "article",
-        "key": "",
-        "fields": {
-            "author": [
-                "euth"
-            ],
-            "title": "",
-            "journal": "",
-            "year": "",
-            "volume": "",
-            "pages": ""
-        },
-        "keywords": []
-    },
-    {
-        "citation_type": "article",
-        "key": "ihj",
-        "fields": {
-            "author": [
-                "er"
-            ],
-            "title": "",
-            "journal": "",
-            "year": "",
-            "volume": "",
-            "pages": ""
-        },
-        "keywords": []
-    },
-    {
-        "citation_type": "inproceedings",
-        "key": "etd3",
-        "fields": {
-            "author": [
-                "teijo",
-                "teija"
-            ],
-            "title": "etenemisensä",
-            "year": 11,
-            "booktitle": "näillä mennään sitten etenemisen kannalta"
-        },
-        "keywords": [
-            "eteinen",
-            "eteenpäin",
-            "edetessä",
-            "eteneminen"
+            "DOI",
+            "ACM"
         ]
     }
 ]
