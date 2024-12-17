@@ -242,7 +242,7 @@ class UI:
         authors = []
         fields = citation.fields
         identifier = self.io.read(f"\nCurrent id is {citation.key}\nGive new identifier: ")
-        self.io.write(f"\nCurrent author/s: {', '.join(fields.get("author"))}")
+        self.io.write(f"\nCurrent author/s: {', '.join(fields["author"])}")
         while True:
             author = self.io.read("Give new author/authors\nformat: Firstname Lastname or Lastname, Firstname (Press Enter to continue)\nAuthor: ")
             if author == "": break
