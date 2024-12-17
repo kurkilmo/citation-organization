@@ -3,6 +3,9 @@
 
 ![GHA workflow badge](https://github.com/kurkilmo/citation-organization/workflows/CI/badge.svg)
 
+## Product Backlog
+[Linkki backlogiin](https://docs.google.com/spreadsheets/d/1q9C4RXnE4gInDq2bKCTpGkoqkiaWKnTlQaIP-ooRZwQ/edit?usp=sharing)
+
 ## Riippuvuuksien asennus
 `poetry install`
 
