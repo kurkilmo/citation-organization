@@ -30,3 +30,7 @@
   - myös muita tiedokantoja kuten Google Scholaria voi tukea
 - jopa vielä parempi feature olisi datan haku DOI-tunnisteen perusteella
 - kannattaa muistaa että LaTeX mahdollistaa vaikka mitä kenttiä eri viitetyypeille, näistä kentistä aika moni on kuitenkin ainakin kandin tekijöille ihan turhia
+
+## Raportti
+
+[Linkki raporttiin](https://docs.google.com/document/d/1EsbijKOPVUK9clJxeGZKkoBwDKBgPlqrWMK6G-O9Ui0/edit?usp=sharing)
